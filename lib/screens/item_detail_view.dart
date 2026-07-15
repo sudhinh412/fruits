@@ -167,7 +167,7 @@ class ItemDetailView extends StatelessWidget {
                                     fontSize: 11,
                                     color: Colors.grey,
                                   ),
-                                  maxLines: 2,
+                                  maxLines: 1,
                                 ),
                               ],
                             ),

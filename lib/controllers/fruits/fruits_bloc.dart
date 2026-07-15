@@ -8,13 +8,13 @@ part 'fruits_event.dart';
 part 'fruits_state.dart';
 
 class FruitsBloc extends Bloc<FruitsEvent, FruitsState> {
-  final ApiService _apiService = ApiService();
+
 
   FruitsBloc() : super(FruitsInitial()) {
     on<LoadFruits>((event, emit) async {
       emit(FruitsLoading());
       try {
-        final fruits = await _apiService.getFruits();
+        final fruits = await ApiService().getFruits();
         emit(FruitsLoaded(fruits));
       } on DioException catch (e) {
         String message = "An error occurred";
