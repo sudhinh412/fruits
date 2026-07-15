@@ -86,7 +86,7 @@ class ProductCard extends StatelessWidget {
                             fontSize: 14,
                           ),
                         ),
-                        if (fruit.price! >1 && fruit.tag != null  )
+                        if (fruit.price! >3 && fruit.tag != null  )
                            Padding(
                             padding: EdgeInsets.only(left: 4),
                             child: Text(
