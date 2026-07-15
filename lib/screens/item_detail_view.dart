@@ -144,8 +144,7 @@ class ItemDetailView extends StatelessWidget {
                                   ),
                                   child: ClipOval(
                                     child: Image.network(
-                                      benefit.image ??
-                                          'https://via.placeholder.com/50',
+                                      "${benefit.image}" ,
                                       width: 50,
                                       height: 50,
                                       fit: BoxFit.cover,
@@ -154,7 +153,7 @@ class ItemDetailView extends StatelessWidget {
                                 ),
                                  SizedBox(height: 8),
                                 Text(
-                                  benefit.name ?? '',
+                                  "${benefit.name}" ,
                                   textAlign: TextAlign.center,
                                   style:  TextStyle(
                                     fontSize: 11,
@@ -197,7 +196,7 @@ class ItemDetailView extends StatelessWidget {
                               borderRadius: BorderRadius.circular(15),
                               image: DecorationImage(
                                 image: NetworkImage(
-                                  "${recipe.image}",
+                                  "${recipe.image}" ,
                                 ),
                                 fit: BoxFit.cover,
                               ),
@@ -220,7 +219,7 @@ class ItemDetailView extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    recipe.name ?? '',
+                                    "${recipe.name}" ,
                                     style:  TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,

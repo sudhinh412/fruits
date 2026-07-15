@@ -2,19 +2,16 @@ import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
 import '../model/Fruits.dart';
 
+
+
 class ApiService {
   late Dio _dio;
   final Logger _logger = Logger();
 
-  static final ApiService _instance = ApiService._internal();
-  factory ApiService() => _instance;
-
-  ApiService._internal() {
+  ApiService() {
     _dio = Dio(
       BaseOptions(
         baseUrl: "https://hrms.tigrid.in",
-        connectTimeout: const Duration(seconds: 10),
-        receiveTimeout: const Duration(seconds: 10),
         headers: {
           'accept': 'application/json',
           'Content-Type': 'application/json',
@@ -26,10 +23,12 @@ class ApiService {
       InterceptorsWrapper(
         onRequest: (options, handler) {
           _logger.i("Request: ${options.method} ${options.path}");
+          _logger.d("Data: ${options.data}");
           return handler.next(options);
         },
         onResponse: (response, handler) {
           _logger.i("Response: ${response.statusCode}");
+          _logger.d("Data: ${response.data}");
           return handler.next(response);
         },
         onError: (DioException e, handler) {
@@ -59,4 +58,5 @@ class ApiService {
       throw Exception("Unexpected error: $e");
     }
   }
+
 }
