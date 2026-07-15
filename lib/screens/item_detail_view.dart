@@ -143,12 +143,20 @@ class ItemDetailView extends StatelessWidget {
                                     ),
                                   ),
                                   child: ClipOval(
-                                    child: Image.network(
-                                      "${benefit.image}" ,
+                                    child:Image.network(
+                                      benefit.image ?? "",
                                       width: 50,
                                       height: 50,
                                       fit: BoxFit.cover,
-                                    ),
+                                      errorBuilder: (context, error, stackTrace) {
+                                        return Image.network(
+                                          "https://media.istockphoto.com/id/1980276924/vector/no-photo-thumbnail-graphic-element-no-found-or-available-image-in-the-gallery-or-album-flat.jpg?s=612x612&w=0&k=20&c=ZBE3NqfzIeHGDPkyvulUw14SaWfDj2rZtyiKv3toItk=",
+                                          width: 50,
+                                          height: 50,
+                                          fit: BoxFit.cover,
+                                        );
+                                      },
+                                    )
                                   ),
                                 ),
                                  SizedBox(height: 8),
