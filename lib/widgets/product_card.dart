@@ -28,14 +28,15 @@ class ProductCard extends StatelessWidget {
           ),
         );
       },
+      //card section starts here
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.05),
-              blurRadius: 10,
+              color: Colors.black.withOpacity(0.3),
+              blurRadius: 4,
               offset: const Offset(0, 5),
             ),
           ],
@@ -47,6 +48,7 @@ class ProductCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Image section
                   Expanded(
                     child: Center(
                       child: Padding(
@@ -55,6 +57,8 @@ class ProductCard extends StatelessWidget {
                       ),
                     ),
                   ),
+
+                  // Name section
                   Padding(
                     padding:  EdgeInsets.symmetric(horizontal: 12),
                     child: Text(
@@ -67,6 +71,7 @@ class ProductCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
+                  // Price section
                   Padding(
                     padding:  EdgeInsets.symmetric(
                       horizontal: 12,
@@ -81,15 +86,15 @@ class ProductCard extends StatelessWidget {
                             fontSize: 14,
                           ),
                         ),
-                        if (fruit.tag != null && fruit.tag!.contains('OFF'))
+                        if (fruit.price! >1 && fruit.tag != null  )
                            Padding(
                             padding: EdgeInsets.only(left: 4),
                             child: Text(
-                              "₹150",
+                              "₹${(fruit.price! / 0.8).toStringAsFixed(0)}",
                               style: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 11,
-                                decoration: TextDecoration.lineThrough,
+                                decoration: TextDecoration.lineThrough
                               ),
                             ),
                           ),
@@ -120,9 +125,11 @@ class ProductCard extends StatelessWidget {
                 ],
               ),
             ),
-            if (fruit.tag != null && fruit.tag!.isNotEmpty)
+            // tag Section
+
+            if (fruit.price! > 3 && fruit.tag != null )
               Positioned(
-                top: 20,
+                top: 16,
                 left: 0,
                 child: Stack(
                   clipBehavior: Clip.none,
@@ -134,7 +141,7 @@ class ProductCard extends StatelessWidget {
                       color: Colors.deepOrange,
                       padding:  EdgeInsets.only(left: 8),
                       child:  Text(
-                        "Best Seller",
+                        "${fruit.tag}",
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
@@ -153,6 +160,8 @@ class ProductCard extends StatelessWidget {
                   ],
                 ),
               ),
+
+            // Favorite section
             Positioned(
               top: 5,
               right: 4,

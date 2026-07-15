@@ -3,7 +3,7 @@ class FruitImageModel {
     "apple":
     "https://static.vecteezy.com/system/resources/previews/020/899/515/non_2x/red-apple-isolated-on-white-png.png",
     "banana":
-    "https://pngimg.com/uploads/banana/banana_PNG824.png",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR89LVugQF8kcGWnk2nnfkvJQnryUACfnYvlC3sEXzJSQ&s=10",
     "orange":
     "https://images.unsplash.com/photo-1547514701-42782101795e?w=500",
     "mango":
@@ -23,7 +23,6 @@ class FruitImageModel {
   };
 
   static String getImage(String name) {
-    return images[name.toLowerCase()] ??
-        "https://via.placeholder.com/300x300.png?text=Fruit";
+    return images[name.toLowerCase()] ?? "Image not Found";
   }
 }

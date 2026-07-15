@@ -21,16 +21,15 @@ class ItemDetailView extends StatelessWidget {
           children: [
             Stack(
               children: [
+                // image section mapped with fruit.name, fruit_image_helper.dart is the file name. based on the name image will show
                 Container(
                   width: double.infinity,
                   height: 350,
-
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(bottomLeft: Radius.circular(100)),
                     color: Colors.grey.shade300, image: DecorationImage(
                     image:  NetworkImage(FruitImageModel.getImage(fruit.name ?? ""),),
                     fit: BoxFit.cover,
-
 
                   ),
 
@@ -46,10 +45,9 @@ class ItemDetailView extends StatelessWidget {
                 ),
               ],
             ),
-
              SizedBox(height: 20),
 
-
+            // Name section
             Padding(
               padding:  EdgeInsets.symmetric(horizontal: 20),
               child: Column(
@@ -72,8 +70,10 @@ class ItemDetailView extends StatelessWidget {
                         builder: (context, state) {
                           final qty = state.getCount(fruit.id);
                           if (qty > 0) {
+                            // widget model for count
                             return _count(context, qty);
                           } else {
+                            // widget model for add button
                             return _addButton(context);
                           }
                         },
@@ -81,7 +81,7 @@ class ItemDetailView extends StatelessWidget {
                     ],
                   ),
 
-                  // Price and Quantity
+                  // Price section
                   Text(
                     "₹${fruit.price}",
                     style:  TextStyle(
@@ -90,19 +90,19 @@ class ItemDetailView extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
+                  // Quantity section
                   Text(
                     "${fruit.quantity ?? 1} g",
                     style:  TextStyle(fontSize: 18, color: Colors.grey),
                   ),
-
                    SizedBox(height: 20),
-
-
+                  // About section
                    Text(
                     "About",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                    SizedBox(height: 8),
+                  // Description section
                   Text(
                     "${fruit.description}",
                     style:  TextStyle(fontSize: 14, color: Colors.grey),
@@ -111,6 +111,7 @@ class ItemDetailView extends StatelessWidget {
                    SizedBox(height: 25),
 
 
+                  // Benifits section
                   if (fruit.benefits != null && fruit.benefits!.isNotEmpty) ...[
                      Text(
                       "Benefits",
@@ -172,6 +173,7 @@ class ItemDetailView extends StatelessWidget {
                    SizedBox(height: 20),
 
 
+                  // Relevant Recipes section
                   if (fruit.recipes != null && fruit.recipes!.isNotEmpty) ...[
                      Text(
                       "Relevant Recipes",
@@ -250,6 +252,7 @@ class ItemDetailView extends StatelessWidget {
     );
   }
 
+  // Add button
   Widget _addButton(BuildContext context) {
     return SizedBox(
 
@@ -275,6 +278,7 @@ class ItemDetailView extends StatelessWidget {
     );
   }
 
+  // Increment and decrement section
   Widget _count(BuildContext context, int qty) {
     return Container(
 

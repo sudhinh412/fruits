@@ -56,6 +56,7 @@ class _ItemListState extends State<ItemList> {
               ),
               itemBuilder: (context, index) {
                 final fruit = state.fruits[index];
+                //Product card desgin
                 return ProductCard(fruit: fruit);
               },
             );
