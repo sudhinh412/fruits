@@ -94,7 +94,8 @@ class ProductCard extends StatelessWidget {
                               style: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 11,
-                                decoration: TextDecoration.lineThrough
+                                decoration: TextDecoration.lineThrough,
+                                decorationThickness: 2,
                               ),
                             ),
                           ),
